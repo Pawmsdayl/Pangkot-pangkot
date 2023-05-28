@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Answer Quiz</title>
+        <link rel="stylesheet" type="text/css" href="header.css">
+        <link rel="stylesheet" type="text/css" href="quiz.css">
+        <link rel="stylesheet" type="text/css" href="ads.css">
+        <script src="navBar.js"></script>
+    </head>
+    <body>
+        <header>
+            <div id="burgerNav" class="burgerNav">
+                <a href="javascript:void(0)" class="closeBurger" onclick="closeBurger()">&times;</a>
+                <div class="navButtons">
+                    <a href="index.html">Home</a>
+                    <a href="private.html">Private</a>
+                    <a href="quiz-maker.html">Create Quiz</a>
+                    <a href="groupJoin.html">Join Group</a>
+                    <a href="groupCreate.html">Create Group</a>
+                    <a href="group1.html">Group 1</a>
+                    <a href="group2.html">Group 2</a>
+                </div>
+            </div>
+            <span class="burgerIcon" onclick="openBurger()">&#9776;</span>
+            <a class="banner-link" href="index.html">
+                <div class="header-banner">
+                    <div class="logo">
+                        <img src="images/pplogo.png" alt="logo">
+                        <h1>PANGKOT<br>PANGKOT</h1>
+                    </div>
+                </div>
+            </a>
+            <div class="user-profile">
+                <button class="user-profile-button">User Profile</button>
+                <div class="user-content">
+                    <a href="login.html">Login</a>
+                    <a href="signup.html">Sign Up</a>
+                    <a href="settings.html">Settings</a>
+
+                </div>
+            </div>  
+        </header>
+
+        
+        <div class="quit-and-info">
+            <button class="quit-button">Quit</button>
+            <div class="quiz-info">
+                <span>Cards Left: --:--</span>
+                <span>Time Left: --:--</span>
+            </div>
+        </div>
+
+        <div class="flashcard-container">
+            <div class = "flashcard">
+                <table class="flashcard-info">
+                    <tr>
+                        <th class="card-title" colspan="2">Flashcard Title</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Timer: 00:00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Card: 1 of 10</td>
+                    </tr>
+                    <tr>
+                        <td>Description:</td>
+                        <td>
+                            <ul>
+                                <li>Date Created:</li>
+                                <li>Your Last Answer:</li>
+                                <li>Your Average Score:</li>
+                                <li>Your Average Time:</li>
+                                <li>Total Average Score</li>
+                                <li>Total Average Time:</li>
+                                <li>Your Best Score:</li>
+                                <li>Your Best Time:</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="next-back-buttons">
+                <button id="back-button">&#8249;</button>
+                <button id="next-button" onclick="nextCard()">&#8250;</button>
+            </div>
+            <div class="start-quiz-container">
+                <button class="start-quiz-button">Start Quiz</button>
+            </div>
+            
+        </div>
+        <div class="flashcard-behind"></div>
+
+    </body>
+</html>
