@@ -19,18 +19,18 @@
     <main class="signup-form-container">
         <h2>Let's Get Started!</h2>
         <p class="signup-form-info">Create an Account to Enable Features</p>
-        <form class="signup-form">
+        <form class="signup-form" action="dbSignup.php" method="post">
             <div class="form-group">
-            <input type="text" placeholder="Username" required>
+                <input type="text" name="username" placeholder="Username">
             </div>
             <div class="form-group">
-            <input type="email" placeholder="Email" required>
+                <input type="email" name="email" placeholder="Email">
             </div>
             <div class="form-group">
-            <input type="password" placeholder="Password" required>
+                <input type="password" name="account_password" placeholder="Password">
             </div>
             <div class="form-group">
-            <input type="password" placeholder="Confirm Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm Password">
             </div>
             <p class="terms-info">By signing up you agree to our <a href="privacypolicy.html">Terms of Services</a> and <a href="privacypolicy.html">Privacy Policy</a></p>
             <button type="submit" class="signup-btn">Sign Up</button>
@@ -41,4 +41,14 @@
             include 'footer.php';
     ?>
 </body>
+
+    <?php
+        if (isset($_GET['error'])) {
+            echo "<script>alert('". $_GET['error']. "')</script>";
+        }
+
+        if (isset($_GET['success'])) {
+            echo "<script>alert('". $_GET['success']. "')</script>";
+        }
+    ?>
 </html>
