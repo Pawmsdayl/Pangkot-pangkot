@@ -3,17 +3,32 @@ body {
     padding: 0;
 }
 
+header {
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 20px;
+    background-color: #231328;
+    color: #fff;
+    border-bottom: 5px solid #000; 
+}
+
 .burgerNav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  background-color: #231328;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    z-index: 10000;
+    background-color: #231328;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
 .burgerNav a {
@@ -41,17 +56,6 @@ body {
 @media screen and (max-height: 450px){
   .burgerNav {padding-top: 15px;}
   .burgerNav a {font-size: 18px;}
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100px;
-  padding: 0 20px;
-  background-color: #231328;
-  color: #fff;
-  border-bottom: 5px solid #000; 
 }
 
 .banner-link {

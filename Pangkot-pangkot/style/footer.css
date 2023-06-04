@@ -1,21 +1,26 @@
 body {
-  position: relative;
+    position: relative;
+    /* display: flex;
+    flex-direction: column; */
+    min-height: 100vh;
 }
 
 footer {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
+    width: 100%;
+    position:absolute;
+    /* position: sticky; */
+    bottom: 50px;
+    flex-shrink: 0;
 }
 
 #footerRuler {
-  position: absolute;
-  bottom: -10px;
+  position: relative;
+  bottom: -30px;
   width: 99%;
 }
 
 .footerButton {
-  position: absolute;
+  position: relative;
   width: 100px;
   border: 2px solid black;
   border-radius: 10px;

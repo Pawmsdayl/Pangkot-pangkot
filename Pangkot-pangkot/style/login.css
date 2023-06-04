@@ -6,79 +6,10 @@
 
 body {
   background-color: #f2f2f2;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
-}
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #fff;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 999;
-}
-
-.burgerIcon {
-  font-size: 24px;
-  margin-left: 10px;
-}
-
-.user-profile-button {
-  padding: 5px 10px;
-  border: none;
-  background-color: #f2f2f2;
-  cursor: pointer;
-}
-
-.user-content {
-  display: none;
-  position: absolute;
-  top: 40px;
-  right: 10px;
-  background-color: #fff;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.user-content a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  padding: 5px 0;
-}
-
-.user-content a:hover {
-  background-color: #f2f2f2;
-}
-
-.ad-container {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-#ad-container.left {
-  justify-content: flex-start;
-}
-
-#ad-container.right {
-  justify-content: flex-end;
-}
-
-.ad-container img {
-  max-width: 100%;
-  height: auto;
 }
 
 .login-container {
@@ -175,50 +106,9 @@ header {
   border-color: #4CAF50;
 }
 
-body {
+/* body {
   position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-footer {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  flex-shrink: 0;
-}
-
-
-#footerRuler {
-  position: absolute;
-  bottom: -10px;
-  width: 99%;
-}
-
-.footerButton {
-  position: absolute;
-  width: 100px;
-  border: 2px solid black;
-  border-radius: 10px;
-  z-index: 2;
-  bottom: -40px;
-  background-color: black;
-  color: white;
-  font-size: 16px;
-}
-
-#toAbout {
-  left: 18%;
-}
-
-#toFaqs {
-  left: 28%;
-}
-
-.copyright {
-  font-size: 16px;
-  position: absolute;
-  bottom: -38px;
-  right: 18%;
-}
+} */
