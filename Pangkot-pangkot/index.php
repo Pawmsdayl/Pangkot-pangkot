@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style/cards.css">
 </head>
 <body>
+    <!-- comment -->
     <?php
         include 'header.php';
         include 'ads.php';
