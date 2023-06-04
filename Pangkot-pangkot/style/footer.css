@@ -1,42 +1,42 @@
 body {
-    position: relative;
+  position: relative;
 }
 
 footer {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 #footerRuler {
-    position: absolute;
-    bottom: -10px;
-    width: 99%;
+  position: absolute;
+  bottom: -10px;
+  width: 99%;
 }
 
 .footerButton {
-    position: absolute;
-    width: 100px;
-    border: 2px solid black;
-    border-radius: 10px;
-    z-index: 2;
-    bottom: -40px;
-    background-color: black;
-    color: white;
-    font-size: 16px;
+  position: absolute;
+  width: 100px;
+  border: 2px solid black;
+  border-radius: 10px;
+  z-index: 2;
+  bottom: -40px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
 }
 
 #toAbout {
-    left: 18%;
+  left: 18%;
 }
 
 #toFaqs {
-    left: 28%;
+  left: 28%;
 }
 
 .copyright {
-    font-size: 16px;
-    position: absolute;
-    bottom: -38px;
-    right: 18%
+  font-size: 16px;
+  position: absolute;
+  bottom: -38px;
+  right: 18%;
 }
