@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>About Us</title>
-    
+    <!-- comment -->
     <?php
         include 'dbConnector.php';
         include 'commonHead.php';

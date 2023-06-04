@@ -16,7 +16,7 @@
         include 'ads.php';
     ?>
 
-    <div class="contentBackground">
+    <main class="contentBackground">
         <div class="groupCard card">   
             <h1 class="groupTitle lightColor">Public</h1>
             <h2 class="groupDescription textOnDark"> 
@@ -82,10 +82,10 @@
                 </h2>
             </div>
         </div>
-    </div>
-
+    </main>
     <?php
         include 'footer.php';
     ?>
+
 </body>
 </html>
