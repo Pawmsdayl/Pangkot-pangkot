@@ -7,7 +7,7 @@
   	include 'commonHead.php'
   ?>
 	
-    <link rel="stylesheet" type="text/css" href="signup.css">
+    <link rel="stylesheet" type="text/css" href="style/signup.css">
 
 </head>
 <body>    

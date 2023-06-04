@@ -8,7 +8,7 @@
         include 'commonHead.php'
     ?>
     
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="style/login.css">
 
 </head>
 <body>    
