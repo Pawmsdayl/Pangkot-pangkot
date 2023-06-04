@@ -1,4 +1,17 @@
 <?php
+    function validate_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        
+        if (empty($data) || $data == null || $data == "") {
+            header("Location: signup.php?error=Complete all fields");
+            exit();
+        }
+    
+        return $data;
+    }
+
     include 'dbConnector.php';
 
     $username = validate_input($_POST['username']);
@@ -52,21 +65,12 @@
     $request = $conn->query($sql);
     if ($request === FALSE) {
         echo "Error: ". $sql. "<br>". $conn->error;
-    } else {
-        header("Location: index.php?success=Account created successfully");
-        exit();
-    }
+    } 
 
-    function validate_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        
-        if (empty($data) || $data == null || $data == "") {
-            header("Location: signup.php?error=Complete all fields");
-            exit();
-        }
-    
-        return $data;
-    }
+    $_SESSION['account_id'] = $account_id;
+    $_SESSION['username'] = $username;
+    $_SESSION['email'] = $email;
+    $_SESSION['avatar_path'] = "Images/Avatar/avatar1.png";
+    header("Location: index.php?success=Account created successfully. Weclome, $username!");
+    exit();
 ?>

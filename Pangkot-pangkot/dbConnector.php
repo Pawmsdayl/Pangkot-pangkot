@@ -55,9 +55,9 @@
         $sql = "CREATE TABLE account (
                     account_id INT(9) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                     username VARCHAR(30) NOT NULL,
-                    account_password VARCHAR(30) NOT NULL,
+                    account_password VARCHAR(30),
                     email VARCHAR(50),
-                    avatar_id INT(2) UNSIGNED,
+                    avatar_id INT(2) UNSIGNED DEFAULT 1,
                         CONSTRAINT fk_account_avatar_id
                         FOREIGN KEY (avatar_id) REFERENCES avatar(avatar_id)
                 )";
@@ -66,9 +66,10 @@
             echo "Error creating table" . $conn->error;
         }
 
-        $sql = "INSERT INTO account (username, account_password, email, avatar_id) 
+        $sql = "INSERT INTO account (username, account_password, email) 
                 VALUES 
-                    ('admin', 'admin', 'pdcordero@up.edu.ph', 1);";
+                    ('admin', 'admin', 'pdcordero@up.edu.ph'),
+                    ('guest', NULL, NULL);";
         $request = $conn->query($sql);
         if ($request === FALSE) {
             echo "Error inserting data" . $conn->error;
@@ -221,5 +222,16 @@
         if ($request === FALSE) {
             echo "Error creating table" . $conn->error;
         }
+    }
+
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (isset($_SESSION['account_id']) === FALSE) {
+        $_SESSION['account_id'] = 2;
+        $_SESSION['username'] = "guest";
+        $_SESSION['email'] = NULL;
+        $_SESSION['avatar_path'] = "Images/Avatar/avatar1.png";
     }
 ?>
