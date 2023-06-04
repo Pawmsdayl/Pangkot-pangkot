@@ -31,6 +31,19 @@
         if ($request === FALSE) {
             echo "Error creating table" . $conn->error;
         }
+
+        $sql = "INSERT INTO avatar (file_path) 
+                VALUES 
+                    ('Images/Avatar/avatar1.png'),
+                    ('Images/Avatar/avatar2.png'),
+                    ('Images/Avatar/avatar3.png'),
+                    ('Images/Avatar/avatar4.png'),
+                    ('Images/Avatar/avatar5.png'),
+                    ('Images/Avatar/avatar6.png');";
+        $request = $conn->query($sql);
+        if ($request === FALSE) {
+            echo "Error inserting data" . $conn->error;
+        }
     }
     
     $sql = "SELECT * 
@@ -44,13 +57,21 @@
                     username VARCHAR(30) NOT NULL,
                     account_password VARCHAR(30) NOT NULL,
                     email VARCHAR(50),
-                    avatar_id INT(2) UNSIGNED NOT NULL,
+                    avatar_id INT(2) UNSIGNED,
                         CONSTRAINT fk_account_avatar_id
                         FOREIGN KEY (avatar_id) REFERENCES avatar(avatar_id)
                 )";
         $request = $conn->query($sql);
         if ($request === FALSE) {
             echo "Error creating table" . $conn->error;
+        }
+
+        $sql = "INSERT INTO account (username, account_password, email, avatar_id) 
+                VALUES 
+                    ('admin', 'admin', 'pdcordero@up.edu.ph', 1);";
+        $request = $conn->query($sql);
+        if ($request === FALSE) {
+            echo "Error inserting data" . $conn->error;
         }
     }       
     
@@ -75,6 +96,14 @@
         $request = $conn->query($sql);
         if ($request === FALSE) {
             echo "Error creating table" . $conn->error;
+        } 
+
+        $sql = "INSERT INTO pangkot_group (group_name, group_description, account_id, creation_date, join_code) 
+                VALUES 
+                    ('Public', 'This is the official public group of PANGKOT-PANGKOT', 1, CURRENT_DATE(), 'EVRYON');";
+        $request = $conn->query($sql);
+        if ($request === FALSE) {
+            echo "Error inserting data" . $conn->error;
         }
     }
 
@@ -103,6 +132,14 @@
         $request = $conn->query($sql);
         if ($request === FALSE) {
             echo "Error creating table" . $conn->error;
+        }
+
+        $sql = "INSERT INTO membership (account_id, group_id, join_date) 
+                VALUES 
+                    (1, 1, CURRENT_DATE());";
+        $request = $conn->query($sql);
+        if ($request === FALSE) {
+            echo "Error inserting data" . $conn->error;
         }
     }
 
