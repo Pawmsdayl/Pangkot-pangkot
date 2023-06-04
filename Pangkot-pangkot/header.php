@@ -1,6 +1,14 @@
 <?php
-    echo
+
+    if ($_SESSION['account_id'] == 2) {
+        $logbutton = "<a href=\"login.php\">Login</a>";
+        $settings = "";
+    } else {
+        $logbutton = "<a href=\"dbLogout.php\">Logout</a>";
+        $settings = "<a href=\"settings.php\">Settings</a>";
+    }
     
+    echo
     '<header>
         <div id="burgerNav" class="burgerNav">
             <a href="javascript:void(0)" class="closeBurger" onclick="closeBurger()">&times;</a>
@@ -26,10 +34,9 @@
         <div class="user-profile">
             <button class="user-profile-button">User Profile</button>
             <div class="user-content">
-                <a href="login.php">Login</a>
+                '. $logbutton. '
                 <a href="signup.php">Sign Up</a>
-                <a href="settings.php">Settings</a>
-
+                '. $settings. '
             </div>
         </div>  
     </header>';

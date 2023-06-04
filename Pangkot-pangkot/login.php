@@ -16,7 +16,16 @@
     <?php
         include 'header.php';
         include 'ads.php';
+
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            $sessionData = $_SESSION;
+            $sessionJson = json_encode($sessionData);
+            echo "<script>console.log('Session Data:', $sessionJson);</script>";
+        } else {
+            echo "<script>console.log('Session Data: None');</script>";
+        }
     ?>
+
 
     <main>
         <div class="login-container">
@@ -24,18 +33,18 @@
                 <img src="images/pplogo.png" alt="logo">
             </div>
             <div class="form-container">
-                <form>
+                <form action="dbLogin.php" method="post">
                     <div class="form-group">
-                        <input type="email" id="email" required>
-                        <label for="email">Email</label>
+                        <input type="text" id="username" name="username" >
+                        <label for="username">Username</label>
                     </div>
                     <div class="form-group">
-                        <input type="password" id="password" required>
+                        <input type="password" id="password" name="account_password" >
                         <label for="password">Password</label>
                     </div>
                     <button class="login-btn" type="submit">Login</button>
                 </form>
-                <p class="forgot-password"><a href="forgot_password.html">Forgot Password</a></p>
+                <p class="forgot-password"><a href="forgot_password.php">Forgot Password</a></p>
             </div>
         </div>
     </main>
@@ -45,4 +54,14 @@
     ?>
 
 </body>
+
+<?php
+    if (isset($_GET['error'])) {
+        echo "<script>alert('". $_GET['error']. "')</script>";
+    }
+
+    if (isset($_GET['success'])) {
+        echo "<script>alert('". $_GET['success']. "')</script>";
+    }
+?>
 </html>

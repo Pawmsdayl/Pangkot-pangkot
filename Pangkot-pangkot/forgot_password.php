@@ -9,7 +9,7 @@
         include 'commonHead.php'
     ?>
     
-    <link rel="stylesheet" href="forgot-password.css">
+    <link rel="stylesheet" href="style/forgot-password.css">
 </head>
 
 <body>    
