@@ -7,13 +7,31 @@
     font-size: 24px;
 }
 
-footer {
-    width: 100%;
-    position: relative;
-    /* bottom: -30px; */
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-::-webkit-scrollbar {
+footer{
+    margin-top: auto;
+}
+
+/* body {
+    min-height: 100%;
+}
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+} */
+
+::-webkit-scrollbar  {
+    width: 0px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar {
     width: 6px;               /* width of the entire scrollbar */
 }
   
@@ -27,9 +45,6 @@ footer {
     border: 3px;  /* creates padding around scroll thumb */
 }
 
-.groupDescription::-webkit-scrollbar, .groupDetails::-webkit-scrollbar  {
-    width: 0px;               /* width of the entire scrollbar */
-}
 
 h1 {
     font-size: 48px;
@@ -193,6 +208,10 @@ a {
     top: 20px;
     right: 140px;
     background-color: lightgreen;
+}
+
+#button1 {
+    right: 20px;
 }
 
 .joinButton {

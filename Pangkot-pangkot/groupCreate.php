@@ -23,7 +23,7 @@
                 <input class="groupTitle groupTitleEditor" type="text" id="groupName" name="groupName" placeholder="Group Name">
                 <textarea class="groupDescription groupDescriptionEditor" id="groupDescription" name="groupDescription" placeholder="Group Description"></textarea>
                 <!-- <input class="groupPasswordEditor" type="text" id="groupPassword" name="groupPassword" placeholder="Group Password"> -->
-                <input class="greenButton button" type="submit" value="Create">
+                <input class="greenButton button" id="button1" type="submit" value="Create">
             </form>
         </div>
     <?php
