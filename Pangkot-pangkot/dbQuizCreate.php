@@ -46,7 +46,7 @@ $number = 1;
 while (isset($_POST['question-' . $number])) {
     $question = validateInput($_POST['question-' . $number]);
     $answer = validateInput($_POST['answer-' . $number]);
-    $sql = "INSERT INTO flashcard (quiz_id, question, answer, flascard_number) 
+    $sql = "INSERT INTO flashcard (quiz_id, question, answer, flashcard_number) 
             VALUES ($quiz_id, '$question', '$answer', $number)
     ;";
     $request = $conn->query($sql);
@@ -55,4 +55,8 @@ while (isset($_POST['question-' . $number])) {
     }
     $number++;
 }
+
+header("Location: index.php?success=Quiz created successfully");
+header("Location: group.php?group_id=$group_id");
+exit();
 ?>

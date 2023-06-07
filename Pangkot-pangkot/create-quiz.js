@@ -22,7 +22,6 @@ function addCard() {
   document.getElementById('card-count').textContent = cardCount;
   // document.getElementById('next-btn').disabled = true;
   // document.getElementById('back-btn').disabled = false;
-  
 }
 
 function showCard(index) {
