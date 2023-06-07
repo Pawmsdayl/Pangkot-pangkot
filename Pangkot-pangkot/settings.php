@@ -9,6 +9,7 @@
     ?>
 
     <link rel="stylesheet" type="text/css" href="style/settings.css">
+    <script src="settings.js"></script>
 </head>
 <body>
     <?php
@@ -22,14 +23,26 @@
     <div class="settings-container">
         <div class="profile-info">
             <div class="profile-picture">
-                <img src="images/profile.png" alt="Profile Picture">
+                <img id="avatar-image" src="Images/Avatar/avatar1.png" alt="Avatar Image">
             </div>
             <div class="profile-name-section">
                 <h2> <?php echo $username; ?></h2>
             </div>
         </div>
+
         <div class="settings-info">
             <form action="dbSettingsName.php" method="post">
+                <div class="avatar-section">
+                    <label for="avatar-dropdown">Select Avatar:</label>
+                    <select id="avatar-dropdown">
+                        <option value="avatar1">Avatar 1</option>
+                        <option value="avatar2">Avatar 2</option>
+                        <option value="avatar3">Avatar 3</option>
+                        <option value="avatar4">Avatar 4</option>
+                        <option value="avatar5">Avatar 5</option>
+                        <option value="avatar6">Avatar 6</option>
+                    </select>
+                </div>
                 <div class="email-section">
                     <label for="username">Current Usern ame:</label>
                     <span> <?php echo $username; ?></span>

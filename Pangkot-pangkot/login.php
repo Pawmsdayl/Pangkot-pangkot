@@ -44,6 +44,9 @@
                     <button class="login-btn" type="submit">Login</button>
                 </form>
                 <p class="forgot-password"><a href="forgot_password.php">Forgot Password</a></p>
+                <div class="form-group">
+                    <p class="dontHaveAcc">Don't have an account yet? <a href="signup.php">Signup.</a></p> 
+                </div>
             </div>
         </div>
     </main>
