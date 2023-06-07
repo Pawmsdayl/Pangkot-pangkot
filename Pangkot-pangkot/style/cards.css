@@ -7,12 +7,6 @@
     font-size: 24px;
 }
 
-footer {
-    width: 100%;
-    position: relative;
-    /* bottom: -30px; */
-}
-
 ::-webkit-scrollbar {
     width: 6px;               /* width of the entire scrollbar */
 }
@@ -25,10 +19,6 @@ footer {
     background-color: rgba(128, 128, 128, 0.864);    /* color of the scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */
     border: 3px;  /* creates padding around scroll thumb */
-}
-
-.groupDescription::-webkit-scrollbar, .groupDetails::-webkit-scrollbar  {
-    width: 0px;               /* width of the entire scrollbar */
 }
 
 h1 {
@@ -72,7 +62,8 @@ a {
 
 .groupCard {
     background-color: green;
-    height: 375px;
+    height: 500px;
+
 }
 
 .groupTitle {
@@ -83,26 +74,25 @@ a {
 
 .groupDescription {
     float: left;
-    height: 240px;
+    height: 350px;
     width: 50%;
     left: 0;
     position: absolute;
     padding: 10px 20px;
-    top: 100px;
-    overflow: auto;
+    top: 110px;
+    overflow: hidden;
     text-align: justify;
 }
 
 .groupDetails {
     float: right;
-    height: 240px;
+    height: 350px;
     width: 50%;
     right: 0;
     position: absolute;
     padding: 10px 20px;
-    top: 100px;
+    top: 110px;
     line-height: 30px;
-    overflow: auto;
 }
 
 .quizCard {
@@ -164,7 +154,6 @@ a {
     width: 51%;
     background-color: lightgreen;
     z-index: 1;
-    
 }
 
 .quizDetails {
@@ -191,7 +180,7 @@ a {
 .greenButton {
     position: absolute;
     top: 20px;
-    right: 140px;
+    right: 20px;
     background-color: lightgreen;
 }
 
