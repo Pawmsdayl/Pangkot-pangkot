@@ -6,7 +6,7 @@
         $settings = "";
     } else {
         $logbutton = "<a href=\"dbLogout.php\">Logout</a>";
-        $username = strtoupper($_SESSION['username']);
+        $username = strtoupper(substr($_SESSION['username'], 0, 15));
         $settings = "<a href=\"settings.php\">Settings</a>";
     }
     
