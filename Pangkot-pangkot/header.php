@@ -2,9 +2,11 @@
 
     if ($_SESSION['account_id'] == 2) {
         $logbutton = "<a href=\"login.php\">Login</a>";
+        $username = "LOG IN";
         $settings = "";
     } else {
         $logbutton = "<a href=\"dbLogout.php\">Logout</a>";
+        $username = strtoupper($_SESSION['username']);
         $settings = "<a href=\"settings.php\">Settings</a>";
     }
     
@@ -32,7 +34,7 @@
             </div>
         </a>
         <div class="user-profile">
-            <button class="user-profile-button">User Profile</button>
+            <button class="user-profile-button">'. $username .'</button>
             <div class="user-content">
                 '. $logbutton. '
                 <a href="signup.php">Sign Up</a>
