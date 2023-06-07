@@ -88,13 +88,4 @@
     ?>
 
 </body>
-    <?php
-        if (isset($_GET['error'])) {
-            echo "<script>alert('". $_GET['error']. "')</script>";
-        }
-
-        if (isset($_GET['success'])) {
-            echo "<script>alert('". $_GET['success']. "')</script>";
-        }
-    ?>
 </html>
