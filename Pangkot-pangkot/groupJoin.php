@@ -20,10 +20,10 @@
     <div class="contentBackground">
         <div class="groupCard card">
             <h1 class="groupTitle lightColor">Join Group</h1>
-            <form>
-                <input class="inputGroupPassword" type="text" id="groupPassword" name="groupPassword" placeholder="Join Code">
+            <form action="dbGroupJoin.php" method="POST" >
+                <input class="inputGroupPassword" type="text" id="join_code" name="join_code" placeholder="Join Code">
+                <input class="joinButton button" type="submit" value="Join">
             </form>
-            <input class="joinButton button" type="submit" value="Join">
         </div>
     </div>
 

@@ -32,7 +32,7 @@
             <div class="form-group">
                 <input type="password" name="confirm_password" placeholder="Confirm Password">
             </div>
-            <p class="terms-info">By signing up you agree to our <a href="privacypolicy.html">Terms of Services</a> and <a href="privacypolicy.html">Privacy Policy</a></p>
+            <p class="terms-info">By signing up you agree to our <a href="privacypolicy.php">Terms of Services</a> and <a href="privacypolicy.php">Privacy Policy</a></p>
             <button type="submit" class="signup-btn">Sign Up</button>
         </form>
     </main>

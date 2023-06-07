@@ -5,10 +5,12 @@
         $logbutton = "<a href=\"login.php\">Login</a>";
         $username = "LOG IN";
         $settings = "";
+        $signup = "";
     } else {
         $logbutton = "<a href=\"dbLogout.php\">Logout</a>";
         $username = strtoupper(substr($_SESSION['username'], 0, 15));
         $settings = "<a href=\"settings.php\">Settings</a>";
+        $signup = "<a href=\"signup.php\">Sign Up</a>";
     }
 
     echo '
@@ -35,7 +37,7 @@
             <button class="user-profile-button">'. $username .'</button>
             <div class="user-content">
                 '. $logbutton. '
-                <a href="signup.php">Sign Up</a>
+                '. $signup. '
                 '. $settings. '
             </div>
         </div>  
