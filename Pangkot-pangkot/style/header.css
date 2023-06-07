@@ -1,3 +1,8 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;  
+}
+
+
 body {
     margin: 0;
     padding: 0;
@@ -63,12 +68,14 @@ header {
   color: #fff;
 }
 
+/* make this center horizontally */
 .header-banner, .logo {
-  margin-left: 100px;
-  display: flex;
-  align-items: center;
-  color: #fff;
-
+    margin: auto;
+    width: 50%;  
+    /* margin-left: 100px; */
+    display: flex;
+    align-items: center;
+    color: #fff;
 }
 
 #pangkot {
@@ -120,12 +127,14 @@ header {
 }
 
 .user-content {
+  /* display: block; */
   display: none;
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 2;
+  margin-right: 20px;
 }
 
 .user-content a {

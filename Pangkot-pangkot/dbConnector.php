@@ -91,7 +91,7 @@
                         FOREIGN KEY (account_id) REFERENCES account(account_id)
                         ON DELETE CASCADE
                         ON UPDATE CASCADE,
-                    creation_date DATE NOT NULl,
+                    creation_date DATE NOT NULl DEFAULT CURRENT_DATE(),
                     join_code CHAR(6) NOT NULL
                 )";
         $request = $conn->query($sql);
@@ -117,7 +117,7 @@
         $sql = "CREATE TABLE membership (
                     account_id INT(9) UNSIGNED NOT NULL,
                     group_id INT(6) UNSIGNED,
-                    join_date DATE NOT NULL,
+                    join_date DATE NOT NULL DEFAULT CURRENT_DATE(),
                     PRIMARY KEY (account_id, group_id),
                     FOREIGN KEY(account_id) REFERENCES account(account_id),
                         CONSTRAINT fk_membership_account_id
@@ -164,7 +164,7 @@
                         FOREIGN KEY (group_id) REFERENCES pangkot_group(group_id)
                         ON DELETE CASCADE
                         ON UPDATE CASCADE,
-                    creation_date DATE NOT NULL,
+                    creation_date DATE NOT NULL DEFAULT CURRENT_DATE(),
                     timer INT(6) UNSIGNED NOT NULL
                 )";
         $request = $conn->query($sql);
@@ -192,7 +192,7 @@
                         ON UPDATE CASCADE,
                     PRIMARY KEY (quiz_id, account_id),
                     trial_number INT(3) UNSIGNED NOT NULL,
-                    date_taken DATE NOT NULL,
+                    date_taken DATE NOT NULL DEFAULT CURRENT_DATE(),
                     time_took INT(6) UNSIGNED NOT NULL
                 )";
         $request = $conn->query($sql);

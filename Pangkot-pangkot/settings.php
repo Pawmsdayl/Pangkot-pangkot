@@ -31,7 +31,7 @@
         <div class="settings-info">
             <form action="dbSettingsName.php" method="post">
                 <div class="email-section">
-                    <label for="username">Current Name:</label>
+                    <label for="username">Current Usern ame:</label>
                     <span> <?php echo $username; ?></span>
                 </div>
                 <div class="display-name-section">
