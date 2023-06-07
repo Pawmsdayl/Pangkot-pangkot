@@ -4,41 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flashcard Quiz</title>
-  <link rel="stylesheet" type="text/css" href="header.css">
-  <link rel="stylesheet" type="text/css" href="create-quiz.css">
-  <script src="../navBar.js"></script>  
+  <?php
+        include 'dbConnector.php';
+        include 'commonHead.php'
+    ?>
+    
+  <link rel="stylesheet" type="text/css" href="style/quiz.css">
 </head>
 
 <body>
-  <header>
-    <div id="burgerNav" class="burgerNav">
-        <a href="javascript:void(0)" class="closeBurger" onclick="closeBurger()">&times;</a>
-        <div class="navButtons">
-            <a href="index.html">Home</a>
-            <a href="create-quiz.html">Create Quiz</a>
-            <a href="groupJoin.html">Join Group</a>
-            <a href="groupCreate.html">Create Group</a>
-            <a href="group1.html">Group 1</a>
-            <a href="group2.html">Group 2</a>
-        </div>
-    </div>
-    <span class="burgerIcon" onclick="openBurger()">&#9776;</span>
-    <a class="banner-link" href="index.html">
-        <div class="header-banner">
-            <div class="logo">
-                <img src="../images/pplogo.png" alt="logo">
-                <h1>PANGKOT<br>PANGKOT</h1>
-            </div>
-        </div>
-    </a>
-    <div class="user-profile">
-        <button class="user-profile-button">User Profile</button>
-        <div class="user-content">
-            <a href="login.html">Login</a>
-            <a href="signup.html">Sign Up</a>
-        </div>
-    </div>  
-  </header>
+    <?php
+        include 'header.php';
+        include 'ads.php';
+    ?>
 
   <div class="content">
 
@@ -106,6 +84,10 @@
   <div class="submit-container">
     <button id="submit-btn" type="submit">Submit</button>
   </div>
+
+    <?php
+        include 'footer.php';
+    ?>
 
   <script src="create-quiz.js"></script>
 </body>
