@@ -1,5 +1,5 @@
 <?php
-    function validate_input($data) {
+    function validateInput($data) {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
@@ -14,8 +14,8 @@
 
     include 'dbConnector.php';
 
-    $username = validate_input($_POST['username']) ;
-    $account_password = validate_input($_POST['account_password']);
+    $username = validateInput($_POST['username']) ;
+    $account_password = validateInput($_POST['account_password']);
 
     $sql = "SELECT * 
             FROM account 
@@ -55,7 +55,7 @@
         } else {
             echo "<script>console.log('Session Data: None');</script>";
         }
-        header("Location: login.php?success=Login successful. Welcome, $username!");
+        header("Location: index.php?success=Login successful. Welcome, $username!");
         exit();
     } else {
         header("Location: login.php?error=Invalid username or password");

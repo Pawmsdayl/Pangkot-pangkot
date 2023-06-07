@@ -21,7 +21,7 @@
         <div class="groupCard card">
             <h1 class="groupTitle lightColor">Join Group</h1>
             <form>
-                <input class="inputGroupPassword" type="text" id="groupPassword" name="groupPassword" placeholder="Group Password">
+                <input class="inputGroupPassword" type="text" id="groupPassword" name="groupPassword" placeholder="Join Code">
             </form>
             <input class="joinButton button" type="submit" value="Join">
         </div>

@@ -1,5 +1,5 @@
 <?php
-    function validate_input($data) {
+    function validateInput($data) {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
@@ -14,10 +14,10 @@
 
     include 'dbConnector.php';
 
-    $username = validate_input($_POST['username']);
-    $email = validate_input($_POST['email']);
-    $account_password = validate_input($_POST['account_password']);
-    $confirm_password = validate_input($_POST['confirm_password']);
+    $username = validateInput($_POST['username']);
+    $email = validateInput($_POST['email']);
+    $account_password = validateInput($_POST['account_password']);
+    $confirm_password = validateInput($_POST['confirm_password']);
 
     if ($account_password != $confirm_password) {
         header("Location: signup.php?error=Passwords do not match");
