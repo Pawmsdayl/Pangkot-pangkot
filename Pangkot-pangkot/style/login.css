@@ -78,7 +78,7 @@ body {
   display: block;
   text-align: center;
   margin: 8px auto;
-  font-size: 20px;
+  font-size: 22px;
   font-family: Apple Chancery, cursive;
   color: blue;
   border: none;
@@ -106,9 +106,23 @@ body {
   border-color: #4CAF50;
 }
 
-/* body {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-} */
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dontHaveAcc {
+  font-size: 18px;
+  color: black;
+}
+
+.dontHaveAcc a {
+  color: blue;
+  text-decoration: none;
+}
+
+.dontHaveAcc a:hover {
+  color: green;
+  text-decoration: underline;
+}
