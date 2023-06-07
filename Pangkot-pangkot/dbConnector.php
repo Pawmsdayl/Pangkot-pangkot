@@ -213,8 +213,8 @@
                         FOREIGN KEY (quiz_id) REFERENCES quiz(quiz_id)
                         ON DELETE CASCADE
                         ON UPDATE CASCADE,
-                    flascard_number INT(3) UNSIGNED NOT NULL,
-                    PRIMARY KEY (quiz_id, flascard_number),
+                    flashcard_number INT(3) UNSIGNED NOT NULL,
+                    PRIMARY KEY (quiz_id, flashcard_number),
                     question VARCHAR(100) NOT NULL,
                     answer VARCHAR(100) NOT NULL
                 )";

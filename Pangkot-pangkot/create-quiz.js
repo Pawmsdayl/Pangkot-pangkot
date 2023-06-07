@@ -29,7 +29,7 @@ function showCard(index) {
   var questionContainer = document.getElementById('question-container');
   // var flashcardInfo = document.getElementById('flashcard-info');
   questionContainer.style.display = 'block';
-  questionContainer.innerHTML = '';
+//   questionContainer.innerHTML = '';
   questionContainer.appendChild(cards[index]);
   document.getElementById('card-count').textContent = cardCount;
   document.getElementById('back-btn').disabled = index === -1;
