@@ -2,15 +2,15 @@
     $account_id = $_SESSION['account_id'];
 
     if ($account_id == 2) {
-        $logbutton = "<a href=\"login.php\">Login</a>";
         $username = "LOG IN";
-        $settings = "";
-        $signup = "";
-    } else {
-        $logbutton = "<a href=\"dbLogout.php\">Logout</a>";
-        $username = strtoupper(substr($_SESSION['username'], 0, 15));
-        $settings = "<a href=\"settings.php\">Settings</a>";
+        $logbutton = "<a href=\"login.php\">Login</a>";
         $signup = "<a href=\"signup.php\">Sign Up</a>";
+        $settings = "";
+    } else {
+        $username = strtoupper(substr($_SESSION['username'], 0, 15));
+        $logbutton = "<a href=\"dbLogout.php\">Logout</a>";
+        $signup = "";
+        $settings = "<a href=\"settings.php\">Settings</a>";
     }
 
     echo '

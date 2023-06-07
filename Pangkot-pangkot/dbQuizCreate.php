@@ -57,6 +57,12 @@ while (isset($_POST['question-' . $number])) {
 }
 
 header("Location: index.php?success=Quiz created successfully");
-header("Location: group.php?group_id=$group_id");
+if ($group_id == 1) {
+    header("Location: private.php");
+} else if ($group_id == 2) {
+    header("Location: index.php");
+} else {
+    header("Location: group.php?group_id=$group_id");
+}
 exit();
 ?>

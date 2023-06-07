@@ -122,54 +122,11 @@ $quiz_count = $row['quiz_count'];
                 }
             ?>
         </div>
-
-        <div class="quizCard card">
-            <div class="quizMain">
-                <a href="quiz.php">
-                    <div class="quizHead"> 
-                        <h1 class="quizTitle">Quiz 1</h1>
-                    </div>
-                    <h2 class="quizDescription textOnDark">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
-                    </h2>
-                </a>    
-            </div>
-            <div class="quizSide">
-                <h2 class="quizDetails">
-                    Date Created: yyyy/mm/dd 00:00 <br>
-                    Your Last Answer: yyyy/mm/dd 00:00 <br>
-                    Your Ave. Score: 00/00 <br>
-                    Your Ave. Time: 00:00 out of 00:00 <br>
-                    Your Best Score: 00/00 <br>
-                    Your Best Time: 00:00 out of 00:00 
-                </h2>
-            </div>
-        </div>
-        
-        <div class="quizCard card">
-            <div class="quizMain">
-                <a href="quiz.php">
-                    <div class="quizHead"> 
-                        <h1 class="quizTitle">Quiz 2</h1>
-                    </div>
-                    <h2 class="quizDescription textOnDark">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
-                    </h2>
-                </a>
-            </div>
-            <div class="quizSide">
-                <h2 class="quizDetails">
-                    Date Created: yyyy/mm/dd 00:00 <br>
-                    Your Last Answer: yyyy/mm/dd 00:00 <br>
-                    Your Ave. Score: 00/00 <br>
-                    Your Ave. Time: 00:00 out of 00:00 <br>
-                    Your Best Score: 00/00 <br>
-                    Your Best Time: 00:00 out of 00:00 
-                </h2>
-            </div>
-        </div>
+        <?php
+            include 'dbQuizCardGenerate.php';
+            generateQuizCard($group_id);
+        ?>
     </div>
-
     <?php
         include 'footer.php';
     ?>

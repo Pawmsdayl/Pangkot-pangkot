@@ -1,13 +1,54 @@
+<?php
+include 'dbConnector.php';
+
+$group_id = 2;
+$account_id = $_SESSION['account_id'];
+
+$sql = "SELECT COUNT(account_id) AS member_count 
+        FROM account
+;";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$member_count = $row['member_count'];
+
+$sql = "SELECT *
+        FROM pangkot_group
+        WHERE group_id = $group_id
+;";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$group_name = $row['group_name'];
+$group_description = $row['group_description'];
+$creation_date = $row['creation_date'];
+$admin_id = $row['account_id'];
+
+$sql = "SELECT *
+        FROM account
+        WHERE account_id = $admin_id
+;";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$admin_name = $row['username'];
+
+$sql = "SELECT COUNT(group_id) AS quiz_count
+        FROM quiz
+        WHERE group_id = $group_id
+;";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$quiz_count = $row['quiz_count'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pangkot-Pangkot</title>
+    <title><?php echo $group_name; ?></title>
+    <meta charset="UTF-8">
 
     <?php
-        include 'dbConnector.php';
-        include 'commonHead.php'
+        include 'commonHead.php';
     ?>
-    
+
     <link rel="stylesheet" href="style/cards.css">
 </head>
 <body>
@@ -16,76 +57,29 @@
         include 'ads.php';
     ?>
 
-    <main class="contentBackground">
+    <div class="contentBackground">
         <div class="groupCard card">   
-            <h1 class="groupTitle lightColor">Public</h1>
-            <h2 class="groupDescription textOnDark"> 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore. 
+            <h1 class="groupTitle lightColor"> <?php echo $group_name; ?> </h1>
+            <h2 class="groupDescription textOnDark"> Description:
+                <?php echo $group_description; ?>
             </h2>
             <h2 class="groupDetails textOnDark">
-                Admin: Lorem Ipsum <br>
-                Topic: Lorem Ipsum <br>
-                Member Count: 99999 <br>
-                Quiz Count: 99999 <br>
-                Date Created: yyyy/mm/dd <br>
+                Admin: <?php echo $admin_name; ?> <br>
+                Member Count: <?php echo $member_count; ?> <br>
+                Quiz Count: <?php echo $quiz_count; ?> <br>
+                Creation Date: <?php echo $creation_date; ?> <br>
                 <br>
-                You are member since: yyyy/mm/dd <br>
-                Your Answered Quiz Count: 99999 <br>
-                Total Answered Quiz Count: 99999 <br>
-                <br>
-                Group Code: LOREM00
             </h2>
         </div>
 
-        <div class="quizCard card">
-            <div class="quizMain">
-                <a href="quiz.php">
-                    <div class="quizHead"> 
-                        <h1 class="quizTitle">Quiz 1</h1>
-                    </div>
-                    <h2 class="quizDescription textOnDark">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
-                    </h2>
-                </a>
-            </div>
-            <div class="quizSide lightBackground">
-                <h2 class="quizDetails"> 
-                        Date Created: yyyy/mm/dd 00:00 <br>
-                        Your Last Answer: yyyy/mm/dd 00:00 <br>
-                        Your Ave. Score: 00/00 <br>
-                        Your Ave. Time: 00:00 out of 00:00 <br>
-                        Your Best Score: 00/00 <br>
-                        Your Best Time: 00:00 out of 00:00 
-                    </h2>
-            </div>
-        </div>
-        
-        <div class="quizCard card">
-            <div class="quizMain">
-                <a href="quiz.php">
-                    <div class="quizHead"> 
-                        <h1 class="quizTitle">Quiz 2</h1>
-                    </div>
-                    <h2 class="quizDescription textOnDark">Description
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
-                    </h2>
-                </a>
-            </div>
-            <div class="quizSide lightBackground">
-                <h2 class="quizDetails">
-                        Date Created: yyyy/mm/dd 00:00 <br>
-                        Your Last Answer: yyyy/mm/dd 00:00 <br>
-                        Your Ave. Score: 00/00 <br>
-                        Your Ave. Time: 00:00 out of 00:00 <br>
-                        Your Best Score: 00/00 <br>
-                        Your Best Time: 00:00 out of 00:00 
-                </h2>
-            </div>
-        </div>
-    </main>
+        <?php
+            include 'dbQuizCardGenerate.php';
+            generateQuizCard($group_id);
+        ?>
+    </div>
+
     <?php
         include 'footer.php';
     ?>
-
 </body>
 </html>

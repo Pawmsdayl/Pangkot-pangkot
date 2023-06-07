@@ -10,7 +10,7 @@ $sql = "SELECT *
 $result = $conn->query($sql);
 
 echo '
-    <option value="0" >Private</option>
+    <option value="1" >Private</option>
 ';
 
 while($row = $result->fetch_assoc()) {
