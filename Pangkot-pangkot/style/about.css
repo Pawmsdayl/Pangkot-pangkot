@@ -8,6 +8,12 @@
     /* font-family: Arial, Helvetica, sans-serif; */
 }
 
+footer {
+    width: 100%;
+    position: relative;
+    bottom: 0px;
+}
+
 .aboutWebsite {
     width: 18%;
     margin: 20px auto;

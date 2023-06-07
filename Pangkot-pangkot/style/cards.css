@@ -7,6 +7,12 @@
     font-size: 24px;
 }
 
+footer {
+    width: 100%;
+    position: relative;
+    /* bottom: -30px; */
+}
+
 ::-webkit-scrollbar {
     width: 6px;               /* width of the entire scrollbar */
 }
