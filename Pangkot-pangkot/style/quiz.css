@@ -6,6 +6,10 @@
   background-color: #4d3355;
 } */
 
+::-webkit-scrollbar  {
+    width: 0px;               /* width of the entire scrollbar */
+}
+
 .content {
   display: flex;
   flex-direction: column;

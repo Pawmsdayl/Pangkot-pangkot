@@ -17,16 +17,6 @@ footer{
     margin-top: auto;
 }
 
-/* body {
-    min-height: 100%;
-}
-
-footer {
-    width: 100%;
-    position: absolute;
-    bottom: 0px;
-} */
-
 ::-webkit-scrollbar  {
     width: 0px;               /* width of the entire scrollbar */
 }
