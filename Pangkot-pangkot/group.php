@@ -1,11 +1,71 @@
+<?php
+include 'dbConnector.php';
+
+if (!isset($_GET['group_id'])) {
+    echo "<script>alert('No group id')</script>";
+    header("Location: index.php");
+    exit();
+}
+$group_id = $_GET['group_id'];
+$account_id = $_SESSION['account_id'];
+
+$sql = "SELECT * 
+        FROM membership 
+        WHERE group_id = $group_id 
+        AND account_id = $account_id
+;";
+$result = $conn->query($sql);
+if ($result->num_rows == 0) {
+    header("Location: index.php?error=You are not a member of this group");
+    exit();
+}
+$row = $result->fetch_assoc();
+$join_date = $row['join_date'];
+
+$sql = "SELECT COUNT(account_id) AS member_count 
+        FROM membership 
+        WHERE group_id = $group_id 
+;";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$member_count = $row['member_count'];
+
+$sql = "SELECT *
+        FROM pangkot_group
+        WHERE group_id = $group_id
+;";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$group_name = $row['group_name'];
+$group_description = $row['group_description'];
+$creation_date = $row['creation_date'];
+$admin_id = $row['account_id'];
+$join_code = $row['join_code'];
+
+$sql = "SELECT *
+        FROM account
+        WHERE account_id = $admin_id
+;";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$admin_name = $row['username'];
+
+$sql = "SELECT COUNT(group_id) AS quiz_count
+        FROM quiz
+        WHERE group_id = $group_id
+;";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$quiz_count = $row['quiz_count'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Group 1</title>
+    <title><?php echo $group_name; ?></title>
     <meta charset="UTF-8">
 
     <?php
-        include 'dbConnector.php';
         include 'commonHead.php';
     ?>
 
@@ -15,66 +75,6 @@
     <?php
         include 'header.php';
         include 'ads.php';
-        
-        if (!isset($_GET['group_id'])) {
-            echo "<script>alert('No group id')</script>";
-            header("Location: index.php");
-            exit();
-        }
-        $group_id = $_GET['group_id'];
-        $account_id = $_SESSION['account_id'];
-
-        $sql = "SELECT * 
-                FROM membership 
-                WHERE group_id = $group_id 
-                AND account_id = $account_id
-        ;";
-        $result = $conn->query($sql);
-        if ($result->num_rows == 0) {
-            header("Location: index.php?error=You are not a member of this group");
-            exit();
-        }
-        $row = $result->fetch_assoc();
-        $join_date = $row['join_date'];
-
-        $sql = "SELECT COUNT(account_id) AS member_count 
-                FROM membership 
-                WHERE group_id = $group_id 
-        ;";
-        $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-        $member_count = $row['member_count'];
-
-        $sql = "SELECT *
-                FROM pangkot_group
-                WHERE group_id = $group_id
-        ;";
-        $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-        $group_name = $row['group_name'];
-        $group_description = $row['group_description'];
-        $creation_date = $row['creation_date'];
-        $admin_id = $row['account_id'];
-        $join_code = $row['join_code'];
-
-        $sql = "SELECT *
-                FROM account
-                WHERE account_id = $admin_id
-        ;";
-        $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-        $admin_name = $row['username'];
-
-        $sql = "SELECT COUNT(group_id) AS quiz_count
-                FROM quiz
-                WHERE group_id = $group_id
-        ;";
-        $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-        $quiz_count = $row['quiz_count'];
-
-
-
     ?>
 
     <div class="contentBackground">
