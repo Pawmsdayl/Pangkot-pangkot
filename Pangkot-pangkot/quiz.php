@@ -150,7 +150,10 @@
         <button class="next-button" disabled>&#8250;</button>
     </div>
     <div class="submit-container">
-        <button id="submit-quiz-btn" type="submit">Submit</button>
+        <form action ="dbRecordTime.php" method="POST">
+            <input hidden type="number" name="time_took" id="time_took">
+            <button id="submit-quiz-btn" type="submit">Submit</button>
+        </form>
     </div>
 
     <script>
@@ -286,15 +289,16 @@
             submitButtonContainer.style.display = 'block';
         }
 
-        // Add the event listener to the submit button
-        var submitButton = document.querySelector('.submit-quiz-button');
-        // submitButton.addEventListener('click', submitQuiz);
-
-        // Add the submitQuiz function
         function submitQuiz() {
+            document.getElementById("time_took").value = initialTime - currentTime;
+            alert("initialTime: " + initialTime + "currentTime: " + currentTime + "time_took: " + document.getElementById("time_took").value);
             // Handle the quiz submission
             // For example, calculate the score, show results, etc.
-        }
+        }   
+        // Add the event listener to the submit button
+        var submitButton = document.querySelector('.submit-quiz-button');
+        submitButton.addEventListener('submit', submitQuiz);
+                // Add the submitQuiz function
 
         function startTimer() {
             var timeContainer = document.getElementById('time-container');
@@ -319,6 +323,8 @@
 
                 // Update the time display
                 updateTimeDisplay();
+
+
 
                 // Check if the time has reached 0
                 if (currentTime === 0) {

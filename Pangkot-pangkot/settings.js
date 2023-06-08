@@ -1,17 +1,34 @@
+document.getElementById('avatar_form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // var selectedOption = document.getElementById('myOption').value;
+    // Perform any necessary actions based on the selected option
+
+    var dropdown = document.getElementById("avatar-dropdown");
+    var selectedOption = dropdown.options[dropdown.selectedIndex].value;
+  
+    // Update the avatar image based on the selected option
+    var avatarImage = document.getElementById("avatar-image");
+    avatarImage.src = "Images/Avatar/" + selectedOption + ".png";
+
+    // Submit the form programmatically
+    document.getElementById('avatar_form').submit();
+});
 
 // Function to handle avatar selection change
-function handleAvatarChange() {
-  // Get the selected option from the dropdown
-  var dropdown = document.getElementById("avatar-dropdown");
-  var selectedOption = dropdown.options[dropdown.selectedIndex].value;
+// function handleAvatarChange() {
+//   // Get the selected option from the dropdown
+//   var dropdown = document.getElementById("avatar-dropdown");
+//   var selectedOption = dropdown.options[dropdown.selectedIndex].value;
 
-  // Update the avatar image based on the selected option
-  var avatarImage = document.getElementById("avatar-image");
-  avatarImage.src = "Images/Avatar/" + selectedOption + ".png";
-}
+//   // Update the avatar image based on the selected option
+//   var avatarImage = document.getElementById("avatar-image");
+//   avatarImage.src = "Images/Avatar/" + selectedOption + ".png";
+// }
 
 // Add event listener to the dropdown
 document.addEventListener("DOMContentLoaded", function() {
   var dropdown = document.getElementById("avatar-dropdown");
   dropdown.addEventListener("change", handleAvatarChange);
 });
+
