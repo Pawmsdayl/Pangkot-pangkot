@@ -18,7 +18,6 @@
         <div id="burgerNav" class="burgerNav">
             <a href="javascript:void(0)" class="closeBurger" onclick="closeBurger()">&times;</a>
             <div class="navButtons">
-            <a href="index.php">Home</a>
     ';
                 createNavButtons();
     echo '
@@ -51,19 +50,21 @@
 
         if ($account_id == 2) {
             echo '
-            <a href="login.php?error=Log in first">Private</a>
             <a href="login.php?error=Log in first">Create Quiz</a>
             <a href="login.php?error=Log in first">Join Group</a>
             <a href="login.php?error=Log in first">Create Group</a>
+            <a href="index.php">Home</a>
+            <a href="login.php?error=Log in first">Private</a>            
             ';
             return;
         }
 
         echo '
-        <a href="private.php">Private</a>
         <a href="quiz-maker.php">Create Quiz</a>
         <a href="groupJoin.php">Join Group</a>
         <a href="groupCreate.php">Create Group</a>
+        <a href="index.php">Home</a>
+        <a href="private.php">Private</a>
         ';
 
         $sql = "SELECT group_id 
