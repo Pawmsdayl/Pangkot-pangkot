@@ -60,13 +60,6 @@
         echo "Error: ". $sql. "<br>". $conn->error;
     }
 
-    $sql = "INSERT INTO membership (account_id, group_id, join_date)
-            VALUES ('$account_id', 1, CURRENT_DATE())";
-    $request = $conn->query($sql);
-    if ($request === FALSE) {
-        echo "Error: ". $sql. "<br>". $conn->error;
-    } 
-
     $_SESSION['account_id'] = $account_id;
     $_SESSION['username'] = $username;
     $_SESSION['email'] = $email;

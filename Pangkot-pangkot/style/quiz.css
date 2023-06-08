@@ -1,177 +1,235 @@
-.quit-and-info {
-    margin-top: 1.5em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15em;
+* {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.quit-button {
-    margin-right: 20px;
-    padding: 10px 20px;
-    background-color: #231328;
-    color: #fff;
-    font-size: 15px;
-    border-radius: 10px;
-    text-transform: uppercase;
+/* body {
+  background-color: #4d3355;
+} */
+
+::-webkit-scrollbar  {
+    width: 0px;               /* width of the entire scrollbar */
 }
 
-.quiz-info {
-    display: flex;
-    align-items: center;
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.quiz-info span{
-    margin-right: 20px;
+.card-and-time {
+  margin: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.flashcard-container {
-    position: relative;
+.card-time-info {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 320px;
 }
 
-.flashcard {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 50px auto;
-    width: 900px;
-    height: 500px;
-    background-color: #808CEB;
-    border: 2px solid #000;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.flashcard-info {
-    width: 90%;
-    max-height: 70%;
-    background-color: #fff;
-    margin-top: 20px;
-    padding: 20px;
-    border: 2px solid #333;
-    border-radius: 10px;
-}
-
-.flashcard-info tr:first-child th,
-.flashcard-info tr:nth-child(2),
-.flashcard-info tr:nth-child(3) {
-    text-align: center;
-}
-
-
-.flashcard-info tr:nth-child(4) {
-    vertical-align: top;
-}
-
-.flashcard-info tr:nth-child(4) td ul{
-    list-style: none;
-}
-
-.card-title {
-    font-size: 40px;
-}
-
-#minutes, #seconds, #cards-number  {
-    width: 20px;
-    /* -moz-appearance: textfield; */
-}
-
+/* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.card {
+  /* display: flex;
+  flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(82, 42, 68);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #48aaad;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  width: 900px;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.flashcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(95, 58, 82);
+  padding: 20px 10px 0;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #52b2bf;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  width: 900px;
+  height: 500px;
+  position: relative;
+}
+
+.flashcard-info {
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90%;
+  height: 55%;
+  background-color: white;
+  padding: 20px;
+}
+
+#card-title {
+  text-align: center;
+  font-size: 20px;
+}
+
+#minutes,
+#seconds {
+  width: 60px; /* Adjust the width as per your preference */
+}
+
+.flashcard-info td {
+  padding: 5px 40px;
+
+}
+
+.flashcard-info tr:nth-child(1),
+.flashcard-info tr:nth-child(2) {
+  text-align: center;
+}
+
+
+.card h2 {
+  margin-top: 0;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
 #description {
-    width: 100%;
-    height: 150px;
-    word-wrap: break-word;
-    word-break: break-all;
+  width: 250px;
+  height: 150px;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
-
-.flashcard-container #back-button {
-    position: absolute;
-    left: 330px;
-    bottom: 250px;
-}
-  
-.flashcard-container #next-button {
-    position: absolute;
-    right: 330px;
-    bottom: 250px;
-}
-
-.next-back-buttons {
-    bottom: 3em;
+.button-container {
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1000px;
+  position: absolute;
+  bottom: 500px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-#back-button,
-#next-button {
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #000;
-    font-weight: bold;
-    font-size: 16px;
-    border: 1px solid #000;
-    cursor: pointer;
+.button-container button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
-.start-quiz-container {
-    position: absolute;
-    bottom: 4.5em;
-    width: 100%;    
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#back-btn,
+#next-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+  font-size: 30px;
+  border: 1px solid #000;
+  cursor: pointer;
 }
 
-.start-quiz-button {
-    padding: 20px;
-    width: 450px;
-    border-radius: 15px;
-    background-color: #fff;
-    color: #000;
-    font-weight: bold;
-    font-size: 20px;
-    border: 1px solid #000;
-    cursor: pointer;
+#choose-group-container {
+  margin: 20px;
 }
 
-.choose-group-container {
-    position: absolute;
-    left: 450px;
-    bottom: 2em;
+#choose-group-container label {
+  display: block;
+  margin-bottom: 10px;
 }
 
-.choose-color-container {
-    position: absolute;
-    right: 450px;
-    bottom: 2em;
+#group-select {
+  width: 200px;
+  padding: 5px;
+  height: 50px;
+  text-align: center;
+  background-color: white;
+  border-radius: 20px;
 }
 
-.choose-group-container a:hover,
-.choose-color-container a:hover{
-    background-color: #ddd;
+.submit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
 }
 
-.flashcard-behind {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin-top: -37em;
-    left: 410px;
-    width: 900px;
-    height: 500px;
-    background-color: #808CEB;
-    border: 2px solid #000;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 10px;
-    z-index: -1;
+#submit-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #48aaad;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border: 1px solid black;
 }
 
+.question-input{
+  width: 80%;
+  height: 150px;
+  resize: vertical;
+}
+.answer-input {
+  width: 50%;
+  height: 100px;
+  resize: vertical;
+}
+
+.question-input,
+.answer-input {
+  margin: 0 auto; /* Add this line to center the input horizontally */
+  display: block; /* Add this line to remove the default inline behavior */
+  border-radius: 10px;
+  margin: 0 auto 100px;
+  border: solid 1px black;
+  padding: 10px 20px;
+}
+
+.card {
+  /* Existing styles for the card */
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateX(0);
+}
+
+.card.hidden-next {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.card.hidden-back {
+  opacity: 0;
+  transform: translateX(-100%);
+}

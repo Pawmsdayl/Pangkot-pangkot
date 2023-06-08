@@ -2,15 +2,15 @@
     $account_id = $_SESSION['account_id'];
 
     if ($account_id == 2) {
-        $logbutton = "<a href=\"login.php\">Login</a>";
         $username = "LOG IN";
-        $settings = "";
-        $signup = "";
-    } else {
-        $logbutton = "<a href=\"dbLogout.php\">Logout</a>";
-        $username = strtoupper(substr($_SESSION['username'], 0, 15));
-        $settings = "<a href=\"settings.php\">Settings</a>";
+        $logbutton = "<a href=\"login.php\">Login</a>";
         $signup = "<a href=\"signup.php\">Sign Up</a>";
+        $settings = "";
+    } else {
+        $username = strtoupper(substr($_SESSION['username'], 0, 15));
+        $logbutton = "<a href=\"dbLogout.php\">Logout</a>";
+        $signup = "";
+        $settings = "<a href=\"settings.php\">Settings</a>";
     }
 
     echo '
@@ -18,7 +18,6 @@
         <div id="burgerNav" class="burgerNav">
             <a href="javascript:void(0)" class="closeBurger" onclick="closeBurger()">&times;</a>
             <div class="navButtons">
-            <a href="index.php">Home</a>
     ';
                 createNavButtons();
     echo '
@@ -51,19 +50,21 @@
 
         if ($account_id == 2) {
             echo '
-            <a href="login.php?error=Log in first">Private</a>
             <a href="login.php?error=Log in first">Create Quiz</a>
             <a href="login.php?error=Log in first">Join Group</a>
             <a href="login.php?error=Log in first">Create Group</a>
+            <a href="index.php">Home</a>
+            <a href="login.php?error=Log in first">Private</a>            
             ';
             return;
         }
 
         echo '
-        <a href="private.php">Private</a>
         <a href="quiz-maker.php">Create Quiz</a>
         <a href="groupJoin.php">Join Group</a>
         <a href="groupCreate.php">Create Group</a>
+        <a href="index.php">Home</a>
+        <a href="private.php">Private</a>
         ';
 
         $sql = "SELECT group_id 

@@ -57,6 +57,7 @@
                     username VARCHAR(30) NOT NULL,
                     account_password VARCHAR(30),
                     email VARCHAR(50),
+                    join_date DATE DEFAULT CURRENT_DATE(),
                     avatar_id INT(2) UNSIGNED DEFAULT 1,
                         CONSTRAINT fk_account_avatar_id
                         FOREIGN KEY (avatar_id) REFERENCES avatar(avatar_id)
@@ -99,9 +100,11 @@
             echo "Error creating table" . $conn->error;
         } 
 
-        $sql = "INSERT INTO pangkot_group (group_name, group_description, account_id, creation_date, join_code) 
+        $sql = "INSERT INTO pangkot_group (group_name, group_description, account_id, join_code) 
                 VALUES 
-                    ('Public', 'This is the official public group of PANGKOT-PANGKOT', 1, CURRENT_DATE(), 'EVRYON');";
+                    ('Private', 'These are your personal quizzes', 1, 'ONLIYU'),
+                    ('Public', 'This is the official public group of PANGKOT-PANGKOT', 1, 'EVRYON')
+        ;";
         $request = $conn->query($sql);
         if ($request === FALSE) {
             echo "Error inserting data" . $conn->error;
@@ -129,18 +132,10 @@
                         FOREIGN KEY (group_id) REFERENCES pangkot_group(group_id)
                         ON DELETE CASCADE
                         ON UPDATE CASCADE
-                )";
+        )";
         $request = $conn->query($sql);
         if ($request === FALSE) {
             echo "Error creating table" . $conn->error;
-        }
-
-        $sql = "INSERT INTO membership (account_id, group_id, join_date) 
-                VALUES 
-                    (1, 1, CURRENT_DATE());";
-        $request = $conn->query($sql);
-        if ($request === FALSE) {
-            echo "Error inserting data" . $conn->error;
         }
     }
 
@@ -213,8 +208,8 @@
                         FOREIGN KEY (quiz_id) REFERENCES quiz(quiz_id)
                         ON DELETE CASCADE
                         ON UPDATE CASCADE,
-                    flascard_number INT(3) UNSIGNED NOT NULL,
-                    PRIMARY KEY (quiz_id, flascard_number),
+                    flashcard_number INT(3) UNSIGNED NOT NULL,
+                    PRIMARY KEY (quiz_id, flashcard_number),
                     question VARCHAR(100) NOT NULL,
                     answer VARCHAR(100) NOT NULL
                 )";
