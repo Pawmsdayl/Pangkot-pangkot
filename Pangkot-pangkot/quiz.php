@@ -304,7 +304,7 @@
 
         function submitQuiz() {
             document.getElementById("time_took").value = initialTime - currentTime;
-            alert("initialTime: " + initialTime + "currentTime: " + currentTime + "time_took: " + document.getElementById("time_took").value);
+            // alert("initialTime: " + initialTime + "currentTime: " + currentTime + "time_took: " + document.getElementById("time_took").value);
             // Handle the quiz submission
             // For example, calculate the score, show results, etc.
         }   
