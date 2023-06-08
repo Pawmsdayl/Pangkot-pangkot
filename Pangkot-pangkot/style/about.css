@@ -4,7 +4,7 @@
     box-sizing: border-box;
     text-decoration: none;
     /* color: black; */
-    font-size: 24px;
+    font-size: 18px;
     /* font-family: Arial, Helvetica, sans-serif; */
 }
 
@@ -13,6 +13,7 @@ footer {
     position: relative;
     bottom: 0px;
 }
+
 
 .aboutWebsite {
     width: 18%;
@@ -41,6 +42,13 @@ footer {
     height: 50px;
 }
 
+a.memberSocial {
+    width: 50px;
+    display: inline-flex;
+    /* float: left; */
+    /* display: none; */
+}
+
 .descriptionContainer {
     width: 66%;
     margin: auto auto;
@@ -60,6 +68,7 @@ footer {
 
 .meet {
     margin-bottom: 20px;
+    font-size: 30px;
 }
 
 .memberCard {
@@ -95,4 +104,8 @@ footer {
     width: 200px;
     height: 200px;
     margin: 10px;
+}
+
+.memberName{
+  font-size: 22px;
 }
