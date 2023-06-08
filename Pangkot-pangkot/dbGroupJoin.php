@@ -47,7 +47,7 @@ if ($result === FALSE) {
 }
 
 if ($result->num_rows > 0) {
-    header("Location: index.php?error=You are already a member of this group");
+    header("Location: group.php?error=You are already a member of this group");
     header("Location: group.php?group_id=$group_id");
     exit();
 }

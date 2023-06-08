@@ -33,7 +33,7 @@ function generateQuizCard($group_id) {
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
 
-        if (!isset($row['last_trial_date']) || $group_id == 2) {
+        if (!isset($row['last_trial_date']) || $account_id == 2) {
             $last_trial_date = "yyyy/mm/dd";
             $ave_minutes = "mm";
             $ave_seconds = "ss";

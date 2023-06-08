@@ -16,8 +16,8 @@ $data = json_encode($_POST);
 echo "<script>console.log($data);</script>";
 
 if (!isset($_POST['question-1'])) {
-    // header("Location: quiz-maker.php?error=Add at least one question");
-    // exit();
+    header("Location: quiz-maker.php?error=Add at least one question");
+    exit();
 }
 
 include 'dbConnector.php';
@@ -32,6 +32,11 @@ $minutes = $_POST['minutes'];
 $seconds = $_POST['seconds'];
 $timer = (60 * $minutes) + $seconds;
 $group_id = $_POST['group_id'];
+
+if ($timer == 0) {
+    header("Location: quiz-maker.php?error=Set a timer");
+    exit();
+} 
 
 $sql = "INSERT INTO quiz (account_id, quiz_name, quiz_description, timer, group_id) 
         VALUES ($account_id, '$quiz_name', '$quiz_description', $timer, $group_id)

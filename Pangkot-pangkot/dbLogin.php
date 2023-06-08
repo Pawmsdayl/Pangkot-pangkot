@@ -14,6 +14,8 @@
 
     include 'dbConnector.php';
 
+    // $_SESSION['account_id'] = 1;
+
     $username = validateInput($_POST['username']) ;
     $account_password = validateInput($_POST['account_password']);
 

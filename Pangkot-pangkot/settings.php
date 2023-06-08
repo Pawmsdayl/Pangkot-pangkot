@@ -17,7 +17,24 @@
         include 'ads.php';
         $username = $_SESSION['username'];
         $email = $_SESSION['email'];
+        $account_id = $_SESSION['account_id'];
+
+        $sql = "SELECT avatar_id
+                FROM account
+                WHERE account_id = $account_id
+        ;";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $_SESSION['avatar_id'] = $row['avatar_id'];
         $avatar_id = $_SESSION['avatar_id'];
+
+        $sql = "SELECT file_path
+                FROM avatar
+                WHERE avatar_id = $avatar_id
+        ;";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $_SESSION['avatar_path'] = $row['file_path'];
         $avatar_path = $_SESSION['avatar_path'];
     ?>
 
