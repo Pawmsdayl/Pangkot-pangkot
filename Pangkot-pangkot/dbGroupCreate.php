@@ -1,6 +1,5 @@
 <?php
 include 'dbConnector.php';
-session_start();
 
 $account_id = $_SESSION['account_id'];
 $groupName = validateInput($_POST['groupName']);

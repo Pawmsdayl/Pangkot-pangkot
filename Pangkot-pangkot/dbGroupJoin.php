@@ -1,6 +1,5 @@
 <?php
 include 'dbConnector.php';
-session_start();
 
 $join_code = validateInput($_POST['join_code']);
 
