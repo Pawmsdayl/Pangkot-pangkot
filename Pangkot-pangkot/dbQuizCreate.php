@@ -28,8 +28,8 @@ echo "<script>console.log($data);</script>";
 $account_id = $_SESSION['account_id'];
 $quiz_name = validateInput($_POST['quiz_name']);
 $quiz_description = validateInput($_POST['quiz_description']);
-$minutes = validateInput($_POST['minutes']);
-$seconds = validateInput($_POST['seconds']);
+$minutes = $_POST['minutes'];
+$seconds = $_POST['seconds'];
 $timer = (60 * $minutes) + $seconds;
 $group_id = $_POST['group_id'];
 

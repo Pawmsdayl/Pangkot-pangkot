@@ -184,4 +184,21 @@
     background-color: #c996d7;
     color: white;
   }
+
+  .submit-container {
+    text-align: center;
+    margin-top: 250px;
+    display: none;
+  }
   
+  #submit-quiz-btn {
+    background-color: #808CEB;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid black;
+  }
