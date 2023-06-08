@@ -68,16 +68,25 @@
 
 .flashcard-info td {
     padding: 10px 40px;
+    /* border: 1px solid black; */
+}
+
+td:first-child {
+    /* font-weight: bold; */
+    width: 50%;
+
 }
 
 
-.flashcard-info textarea {
+
+
+/* .flashcard-info textarea {
     width: 100%;
     box-sizing: border-box;
     height: 150px;
     word-wrap: break-word;
     word-break: break-all;
-}
+} */
 
 .flashcard-info ul {
     text-align: left; /* Align list items on the left */

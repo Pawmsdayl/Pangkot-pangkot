@@ -116,17 +116,17 @@
                 <th class="card-title" colspan="2"> <?php echo $quiz_name; ?></th>
             </tr>
             <tr>
-                <td colspan="2">Timer: <span id="timer"><?php echo $total_timer ?></span></td>
+                <td class="card-info" colspan="2">Timer: <span id="timer"><?php echo $total_timer ?></span></td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td class="card-info" colspan="2">
                     <label for="cards-number">Cards: <span id="card-count"><?php echo $total_card_count; ?></span></label>
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="description"></label>
-                    <textarea id="description" name="description" placeholder="-Edit Description Here-"></textarea>
+                    <p> <?php echo $quiz_description; ?> </p>
                 </td>
                 <td>
                     <ul>
@@ -151,6 +151,7 @@
     </div>
     <div class="submit-container">
         <form action ="dbRecordTime.php" method="POST">
+            <input hidden type="number" name="quiz_id" value="<?php echo $quiz_id; ?>">
             <input hidden type="number" name="time_took" id="time_took">
             <button id="submit-quiz-btn" type="submit">Submit</button>
         </form>

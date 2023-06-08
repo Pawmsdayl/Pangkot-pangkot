@@ -15,24 +15,15 @@
     <?php
         include 'header.php';
         include 'ads.php';
-        $account_id = $_SESSION['account_id'];
         $username = $_SESSION['username'];
         $email = $_SESSION['email'];
-
-        $sql = "SELECT * 
-                FROM account 
-                WHERE account_id = '$account_id'
-        ;";
-        $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-        $avatar_id = $row['avatar_id'];
-
     ?>
+
 
     <div class="settings-container">
         <div class="profile-info">
             <div class="profile-picture">
-                <img id="avatar-image" src="<?php echo "Images/Avatar/avatar". $avatar_id. ".png"  ?>" alt="Avatar Image">
+                <img id="avatar-image" src="Images/Avatar/avatar1.png" alt="Avatar Image">
             </div>
             <div class="profile-name-section">
                 <h2> <?php echo $username; ?></h2>
@@ -40,24 +31,20 @@
         </div>
 
         <div class="settings-info">
-            
-            <form action = "dbSettingsAvatar.php" method="POST" id="avatar_form">
+            <form action="dbSettingsName.php" method="post">
                 <div class="avatar-section">
-                    <label for="avatar_option" name="avatar_id">Select Avatar:</label>
-                    <select id="avatar_option">
-                        <option value="1">Avatar 1</option>
-                        <option value="2">Avatar 2</option>
-                        <option value="3">Avatar 3</option>
-                        <option value="4">Avatar 4</option>
-                        <option value="5">Avatar 5</option>
-                        <option value="6">Avatar 6</option>
+                    <label for="avatar-dropdown">Select Avatar:</label>
+                    <select id="avatar-dropdown">
+                        <option value="avatar1">Avatar 1</option>
+                        <option value="avatar2">Avatar 2</option>
+                        <option value="avatar3">Avatar 3</option>
+                        <option value="avatar4">Avatar 4</option>
+                        <option value="avatar5">Avatar 5</option>
+                        <option value="avatar6">Avatar 6</option>
                     </select>
                 </div>
-            </form>
-
-            <form action="dbSettingsName.php" method="post">
                 <div class="email-section">
-                    <label for="username">Current Username:</label>
+                    <label for="username">Current Usern ame:</label>
                     <span> <?php echo $username; ?></span>
                 </div>
                 <div class="display-name-section">

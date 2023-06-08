@@ -13,6 +13,9 @@
         $settings = "<a href=\"settings.php\">Settings</a>";
     }
 
+    $settings = "";
+
+
     echo '
     <header>
         <div id="burgerNav" class="burgerNav">
