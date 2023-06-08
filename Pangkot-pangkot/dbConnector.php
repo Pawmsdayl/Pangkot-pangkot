@@ -185,7 +185,6 @@
                         FOREIGN KEY (account_id) REFERENCES account(account_id)
                         ON DELETE CASCADE
                         ON UPDATE CASCADE,
-                    PRIMARY KEY (quiz_id, account_id),
                     trial_number INT(3) UNSIGNED NOT NULL,
                     date_taken DATE NOT NULL DEFAULT CURRENT_DATE(),
                     time_took INT(6) UNSIGNED NOT NULL

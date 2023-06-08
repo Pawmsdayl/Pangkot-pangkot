@@ -16,6 +16,12 @@ function generateQuizCard($group_id) {
         $quiz_name = $quizRow['quiz_name'];
         $quiz_description = $quizRow['quiz_description'];
         $creation_date = $quizRow['creation_date'];
+        $timer = $quizRow['timer'];
+        $timer_minutes = floor($timer / 60);
+        $timer_minutes = str_pad($timer_minutes, 2, "0", STR_PAD_LEFT);
+        $timer_seconds = $timer % 60;
+        $timer_seconds = str_pad($timer_seconds, 2, "0", STR_PAD_LEFT);
+        $timer_display = $timer_minutes. ":". $timer_seconds;
         
         $quiz_id = $quizRow['quiz_id'];
         
@@ -29,10 +35,10 @@ function generateQuizCard($group_id) {
 
         if (!isset($row['last_trial_date']) || $group_id == 2) {
             $last_trial_date = "yyyy/mm/dd";
-            $ave_minutes = "00";
-            $ave_seconds = "00";
-            $best_minutes = "00";
-            $best_seconds = "00";
+            $ave_minutes = "mm";
+            $ave_seconds = "ss";
+            $best_minutes = "mm";
+            $best_seconds = "ss";
         } else {
             $last_trial_date = $row['last_trial_date'];
             $ave_minutes = floor($row['ave_time'] / 60);
@@ -61,8 +67,8 @@ function generateQuizCard($group_id) {
                 <h2 class="quizDetails">
                     Date Created: '. $creation_date. ' <br> 
                     Your Last Answer: '. $last_trial_date. ' <br>
-                    Your Ave. Time: '. $ave_minutes. ':'. $ave_seconds. ' out of 00:00 <br>
-                    Your Best Time: '. $best_minutes. ':'. $best_seconds. ' out of 00:00
+                    Your Ave. Time: '. $ave_minutes. ':'. $ave_seconds. ' out of '. $timer_display. '<br>
+                    Your Best Time: '. $best_minutes. ':'. $best_seconds. ' out of '. $timer_display. '
                 </h2>
             </div>
         </div>

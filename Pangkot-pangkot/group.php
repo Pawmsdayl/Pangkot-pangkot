@@ -106,11 +106,12 @@ $quiz_count = $row['quiz_count'];
                         <input type='number' hidden name='group_id' value='$group_id'>
                         <button class='redButton button' type='submit'>Delete</button>
                     </form>
-                    <form action='groupEdit.php' method='POST'>
-                        <input type='number' hidden name='group_id' value='$group_id'>
-                        <button class='greenButton button' type='submit'>Edit</button>
-                    </form>
                     ";
+
+                    // <form action='groupEdit.php' method='POST'>
+                    //     <input type='number' hidden name='group_id' value='$group_id'>
+                    //     <button class='greenButton button' type='submit'>Edit</button>
+                    // </form>
                 } else {
                     echo "
                     <form action='dbGroupLeave.php' method='POST'>

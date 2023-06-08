@@ -1,6 +1,5 @@
 <?php
 include 'dbConnector.php';
-session_start();
 
 $join_code = validateInput($_POST['join_code']);
 
@@ -24,6 +23,17 @@ $row = $result->fetch_assoc();
 $group_id = $row['group_id'];
 $account_id = $_SESSION['account_id'];
 
+switch($group_id) {
+case 1:
+    header("Location: private.php?error=This is your Private Group");
+    exit();
+case 2:
+    header("Location: index.php?error=This is your Public Group");
+    exit();
+default:
+    break;
+}
+
 $sql = "SELECT * 
         FROM membership 
         WHERE account_id = $account_id 
@@ -37,7 +47,7 @@ if ($result === FALSE) {
 }
 
 if ($result->num_rows > 0) {
-    header("Location: groupJoin.php?error=You are already a member of this group");
+    header("Location: index.php?error=You are already a member of this group");
     header("Location: group.php?group_id=$group_id");
     exit();
 }
@@ -51,6 +61,9 @@ if ($result === FALSE) {
     header("Location: groupJoin.php?error=Could not join group");
     exit();
 }
+
+header("Location: group.php?group_id=$group_id");
+exit();
 
 function validateInput($data) {
     $data = trim($data);

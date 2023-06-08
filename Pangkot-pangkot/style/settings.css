@@ -4,6 +4,10 @@ body {
   background-color: #f7f7f7;
 }
 
+#confirmAvatar {
+    margin-left: 150px;
+}
+
 /* Styles for settings page */
 .settings-container {
   margin: 0 auto;

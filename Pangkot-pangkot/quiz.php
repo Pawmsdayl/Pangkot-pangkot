@@ -116,17 +116,17 @@
                 <th class="card-title" colspan="2"> <?php echo $quiz_name; ?></th>
             </tr>
             <tr>
-                <td colspan="2">Timer: <span id="timer"><?php echo $total_timer ?></span></td>
+                <td class="card-info" colspan="2">Timer: <span id="timer"><?php echo $total_timer ?></span></td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td class="card-info" colspan="2">
                     <label for="cards-number">Cards: <span id="card-count"><?php echo $total_card_count; ?></span></label>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="align-left">
                     <label for="description"></label>
-                    <textarea id="description" name="description" placeholder="-Edit Description Here-"></textarea>
+                    <p> <?php echo $quiz_description; ?> </p>
                 </td>
                 <td>
                     <ul>
@@ -149,8 +149,19 @@
         <button class="back-button" disabled>&#8249;</button>
         <button class="next-button" disabled>&#8250;</button>
     </div>
+    <div class="submit-container">
+        <form action ="dbRecordTime.php" method="POST">
+            <input hidden type="number" name="quiz_id" value="<?php echo $quiz_id; ?>">
+            <input hidden type="number" name="time_took" id="time_took">
+            <button id="submit-quiz-btn" type="submit">Submit</button>
+        </form>
+    </div>
 
     <script>
+        var currentTime;
+        var initialTime;
+
+
         var startButton = document.querySelector('.start-quiz-button');
         startButton.addEventListener('click', startQuiz);
 
@@ -218,7 +229,11 @@
             // Display the first card
             displayCard(currentCardIndex);
             document.getElementById("cardsLeft").innerHTML = maxCardCount - currentCardIndex - 1;
+            startTimer();
 
+            if (cards.length === 1) {
+                showSubmitButton();
+            }
         }
 
         function displayCard(cardIndex) {
@@ -253,7 +268,13 @@
 
                 // Display the next card
                 displayCard(currentCardIndex);
+
+                var isLastCard = currentCardIndex === cards.length - 1;
                 document.getElementById("cardsLeft").innerHTML = maxCardCount - currentCardIndex - 1;
+                // Show the submit button if it's the last card
+                if (isLastCard) {
+                    showSubmitButton();
+                }
             }
         }
 
@@ -265,6 +286,94 @@
                 // Display the previous card
                 displayCard(currentCardIndex);
                 document.getElementById("cardsLeft").innerHTML = maxCardCount - currentCardIndex - 1;
+            }
+        }
+
+        function showSubmitButton() {
+            var submitButtonContainer = document.querySelector('.submit-container');
+            submitButtonContainer.style.display = 'block';
+            // alert("adsgfb");
+
+        }
+
+        // Add the event listener to the submit button
+        var submitButton = document.querySelector('#submit-quiz-btn');
+        // Add the submitQuiz function
+        submitButton.addEventListener('click', submitQuiz);
+        // window.onload=function(){
+        // }
+
+        function submitQuiz() {
+            document.getElementById("time_took").value = initialTime - currentTime;
+            // alert("initialTime: " + initialTime + "currentTime: " + currentTime + "time_took: " + document.getElementById("time_took").value);
+            // Handle the quiz submission
+            // For example, calculate the score, show results, etc.
+        }   
+        
+        function startTimer() {
+            var timeContainer = document.getElementById('time-container');
+            var timeDisplay = document.getElementById('timeLeft');
+            
+            <?php 
+                echo "initialTime = $timer;"; 
+            ?> //  in seconds
+            // var currentTime;
+            
+            // Set the current time to the initial time
+            currentTime = initialTime;
+            console.log("currentTime: " + currentTime);
+
+            // Display the initial time
+            updateTimeDisplay();
+
+            // Start the timer
+            var timer = setInterval(function () {
+                // Decrement the current time
+                currentTime--;
+
+                // Update the time display
+                updateTimeDisplay();
+
+
+
+                // Check if the time has reached 0
+                if (currentTime === 0) {
+                    clearInterval(timer);
+                    // Time's up, handle it here
+                    // For example, show a message or end the quiz
+                    alert('Time\'s up!');
+                    handleTimeUp();
+                }
+            }, 1000); // Update every second
+        
+            // Add the handleTimeUp function
+            function handleTimeUp() {
+                // Check if it's the last card
+                <?php echo "var isLastCard = currentCardIndex ===". $total_card_count - 1 .";"; ?>
+                
+
+                // Disable the Next and Back buttons
+                var nextButton = document.querySelector('.next-button');
+                nextButton.disabled = true;
+
+                var backButton = document.querySelector('.back-button');
+                backButton.disabled = true;
+
+
+                showSubmitButton();
+            }
+
+            function updateTimeDisplay() {
+            // Format the current time as minutes and seconds
+                var minutes = Math.floor(currentTime / 60);
+                var seconds = currentTime % 60;
+
+                // Add leading zeros if necessary
+                var formattedTime =
+                    ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2);
+
+                // Update the time display
+                timeDisplay.textContent = formattedTime;
             }
         }
 
@@ -288,6 +397,15 @@
                 array[j] = temp;
             }
         }
+        
+        // if(nextButton.disabled === true) {
+        //     nextButton.classList.add("disabled-button");
+        // }
+
+        // if(backButton.disabled === true) {
+        //     backButton.classList.add("disabled-button");
+        // }
+
     </script>
 </body>
 </html>

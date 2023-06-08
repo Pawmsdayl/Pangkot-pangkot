@@ -9,9 +9,12 @@ $sql = "SELECT *
 ;";
 $result = $conn->query($sql);
 
-echo '
-    <option value="1" >Private</option>
-';
+if ($account_id!=1) {
+    echo '
+        <option value="1" >Private</option>
+    ';
+}
+
 
 while($row = $result->fetch_assoc()) {
     $group_id = $row['group_id'];

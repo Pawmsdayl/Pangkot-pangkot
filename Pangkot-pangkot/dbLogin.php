@@ -31,6 +31,7 @@
         $account_id = $row['account_id'];
         $username = $row['username'];
         $email = $row['email'];
+        $_SESSION['avatar_id'] = $row['avatar_id'];
         $avatar_id = $row['avatar_id'];
 
         $sql = "SELECT file_path 

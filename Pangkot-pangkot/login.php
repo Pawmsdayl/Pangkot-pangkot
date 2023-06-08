@@ -43,7 +43,7 @@
                     </div>
                     <button class="login-btn" type="submit">Login</button>
                 </form>
-                <p class="forgot-password"><a href="forgot_password.php">Forgot Password</a></p>
+                <!-- <p class="forgot-password"><a href="forgot_password.php">Forgot Password</a></p> -->
             </div>
         </div>
     </main>
