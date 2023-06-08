@@ -157,6 +157,10 @@
     </div>
 
     <script>
+        var currentTime;
+        var initialTime;
+
+
         var startButton = document.querySelector('.start-quiz-button');
         startButton.addEventListener('click', startQuiz);
 
@@ -287,7 +291,16 @@
         function showSubmitButton() {
             var submitButtonContainer = document.querySelector('.submit-container');
             submitButtonContainer.style.display = 'block';
+            // alert("adsgfb");
+
         }
+
+        // Add the event listener to the submit button
+        var submitButton = document.querySelector('#submit-quiz-btn');
+        // Add the submitQuiz function
+        submitButton.addEventListener('click', submitQuiz);
+        // window.onload=function(){
+        // }
 
         function submitQuiz() {
             document.getElementById("time_took").value = initialTime - currentTime;
@@ -295,19 +308,15 @@
             // Handle the quiz submission
             // For example, calculate the score, show results, etc.
         }   
-        // Add the event listener to the submit button
-        var submitButton = document.querySelector('.submit-quiz-button');
-        submitButton.addEventListener('submit', submitQuiz);
-                // Add the submitQuiz function
-
+        
         function startTimer() {
             var timeContainer = document.getElementById('time-container');
             var timeDisplay = document.getElementById('timeLeft');
             
             <?php 
-                echo "var initialTime = $timer;"; 
+                echo "initialTime = $timer;"; 
             ?> //  in seconds
-            var currentTime;
+            // var currentTime;
             
             // Set the current time to the initial time
             currentTime = initialTime;
@@ -387,6 +396,7 @@
                 array[j] = temp;
             }
         }
+
     </script>
 </body>
 </html>

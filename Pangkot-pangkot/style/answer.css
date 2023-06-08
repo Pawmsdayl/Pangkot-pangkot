@@ -187,7 +187,7 @@
 
   .submit-container {
     text-align: center;
-    margin-top: 250px;
+    margin-top: 300px;
     display: none;
   }
   
@@ -201,4 +201,5 @@
     border: none;
     cursor: pointer;
     border: 1px solid black;
+    z-index: 1000;
   }
