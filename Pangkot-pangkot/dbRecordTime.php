@@ -27,21 +27,19 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $group_id = $row['group_id'];
 
-switch ($group_id) {
-case 1:
-    $url = "private.php";
-    break;
-case 2:
-    $url = "index.php";
-    break;
-default:
-    $url = "group.php?group_id=". $group_id;
-    break;
+// header("Location: index.php");
+// exit();
+
+switch($group_id) {
+    case 1:
+        header("Location: private.php");
+        exit();
+    case 2:
+        header("Location: index.php");
+        exit();
+    default:
+        header("Location: group.php?group_id=". $group_id);
+        exit();
 }
 
-if ($group_id == 1) {
-    header("Location: $url");
-} 
-
-exit();
 ?>

@@ -21,11 +21,11 @@
     $total_timer = $timer_minutes. ":". $timer_seconds;
 
     switch($group_id) {
-    case 1:         // Public
+    case 2:         // Public
         $quit_href = "index.php?success=You have quit the quiz.";
         break;
 
-    case 2:         // Private
+    case 1:         // Private
         $quit_href = "private.php?success=You have quit the quiz.";
         if ($account_id != $quiz_account_id) {
             header("Location: index.php?error=You are not authorized to view this quiz.");

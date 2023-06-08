@@ -14,6 +14,7 @@
 <body>
     <?php
         include 'header.php';
+        include 'ads.php';
     ?>
 
     <form action="dbQuizCreate.php" method="POST">
