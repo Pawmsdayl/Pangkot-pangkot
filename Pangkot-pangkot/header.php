@@ -13,7 +13,7 @@
         $settings = "<a href=\"settings.php\">Settings</a>";
     }
 
-    $settings = "";
+    // $settings = "";
 
 
     echo '

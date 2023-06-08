@@ -17,13 +17,15 @@
         include 'ads.php';
         $username = $_SESSION['username'];
         $email = $_SESSION['email'];
+        $avatar_id = $_SESSION['avatar_id'];
+        $avatar_path = $_SESSION['avatar_path'];
     ?>
 
 
     <div class="settings-container">
         <div class="profile-info">
             <div class="profile-picture">
-                <img id="avatar-image" src="Images/Avatar/avatar1.png" alt="Avatar Image">
+                <img id="avatar-image" src="<?php echo $avatar_path ?>" alt="Avatar Image">
             </div>
             <div class="profile-name-section">
                 <h2> <?php echo $username; ?></h2>
@@ -31,20 +33,23 @@
         </div>
 
         <div class="settings-info">
-            <form action="dbSettingsName.php" method="post">
+            <form action="dbSettingsAvatar.php" method="POST">
                 <div class="avatar-section">
                     <label for="avatar-dropdown">Select Avatar:</label>
-                    <select id="avatar-dropdown">
-                        <option value="avatar1">Avatar 1</option>
-                        <option value="avatar2">Avatar 2</option>
-                        <option value="avatar3">Avatar 3</option>
-                        <option value="avatar4">Avatar 4</option>
-                        <option value="avatar5">Avatar 5</option>
-                        <option value="avatar6">Avatar 6</option>
+                    <select id="avatar-dropdown" name="avatar_id">
+                        <option value="1" <?php if($avatar_id==1) {echo "selected";} ?> >Avatar 1</option>
+                        <option value="2" <?php if($avatar_id==2) {echo "selected";} ?> >Avatar 2</option>
+                        <option value="3" <?php if($avatar_id==3) {echo "selected";} ?> >Avatar 3</option>
+                        <option value="4" <?php if($avatar_id==4) {echo "selected";} ?> >Avatar 4</option>
+                        <option value="5" <?php if($avatar_id==5) {echo "selected";} ?> >Avatar 5</option>
+                        <option value="6" <?php if($avatar_id==6) {echo "selected";} ?> >Avatar 6</option>
                     </select>
+                    <button id="confirmAvatar" type="submit">Confirm</button>
                 </div>
+            </form>
+            <form action="dbSettingsName.php" method="post">
                 <div class="email-section">
-                    <label for="username">Current Usern ame:</label>
+                    <label for="username">Current Username:</label>
                     <span> <?php echo $username; ?></span>
                 </div>
                 <div class="display-name-section">
@@ -84,14 +89,4 @@
         include 'footer.php';
     ?>
 </body>
-
-<?php
-    if (isset($_GET['error'])) {
-        echo "<script>alert('". $_GET['error']. "')</script>";
-    }
-
-    if (isset($_GET['success'])) {
-        echo "<script>alert('". $_GET['success']. "')</script>";
-    }
-?>
 </html>

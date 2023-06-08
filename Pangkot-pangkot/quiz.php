@@ -124,7 +124,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="align-left">
                     <label for="description"></label>
                     <p> <?php echo $quiz_description; ?> </p>
                 </td>
@@ -397,6 +397,14 @@
                 array[j] = temp;
             }
         }
+        
+        // if(nextButton.disabled === true) {
+        //     nextButton.classList.add("disabled-button");
+        // }
+
+        // if(backButton.disabled === true) {
+        //     backButton.classList.add("disabled-button");
+        // }
 
     </script>
 </body>

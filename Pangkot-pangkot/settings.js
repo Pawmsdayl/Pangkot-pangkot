@@ -7,7 +7,7 @@ function handleAvatarChange() {
 
   // Update the avatar image based on the selected option
   var avatarImage = document.getElementById("avatar-image");
-  avatarImage.src = "Images/Avatar/" + selectedOption + ".png";
+  avatarImage.src = "Images/Avatar/avatar" + selectedOption + ".png";
 }
 
 // Add event listener to the dropdown

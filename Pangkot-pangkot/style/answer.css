@@ -77,8 +77,9 @@ td:first-child {
 
 }
 
-
-
+table .align-left {
+    text-align: left;
+}
 
 /* .flashcard-info textarea {
     width: 100%;
@@ -212,3 +213,7 @@ td:first-child {
     border: 1px solid black;
     z-index: 1000;
   }
+
+  /* .disabled-button {
+    cursor: not-allowed;
+  } */

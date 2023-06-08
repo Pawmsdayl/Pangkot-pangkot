@@ -46,7 +46,7 @@
                     <tr>
                         <td>
                             <label for="description"></label>
-                            <textarea type="text" id="description" name="quiz_description" placeholder="-Edit Description Here-" required></textarea>
+                            <textarea maxlength="100" type="text" id="description" name="quiz_description" placeholder="-Edit Description Here-" required></textarea>
 
                         </td>
                         <td>
