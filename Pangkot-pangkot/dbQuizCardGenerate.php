@@ -6,15 +6,18 @@ function generateQuizCard($group_id) {
             FROM quiz
             WHERE group_id = $group_id
     ;";
-    $result = $conn->query($sql);
+    $quizResult = $conn->query($sql);
     
-    while ($quizRow = $result->fetch_assoc()) {
+    // iterate through rows from result
+
+    $account_id = $_SESSION['account_id'];
+
+    while ($quizRow = $quizResult->fetch_assoc()) {
         $quiz_name = $quizRow['quiz_name'];
         $quiz_description = $quizRow['quiz_description'];
         $creation_date = $quizRow['creation_date'];
         
         $quiz_id = $quizRow['quiz_id'];
-        $account_id = $_SESSION['account_id'];
         
         $sql = "SELECT MAX(date_taken) AS last_trial_date, AVG(time_took) AS ave_time, MIN(time_took) AS best_time
                 FROM record
@@ -64,7 +67,8 @@ function generateQuizCard($group_id) {
             </div>
         </div>
         ';
+
+
     }
-    
 }
 ?>
